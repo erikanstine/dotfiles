@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 #    _______ _______ _______ _______
 #   |\     /|\     /|\     /|\     /|
 #   | +---+ | +---+ | +---+ | +---+ |
@@ -16,8 +9,10 @@ fi
 export PATH=~/bin:$PATH
 export PATH=$PATH:/Users/eanstine/bin
 export PATH=$PATH:/Users/eanstine/Library/Python/3.7/bin
+export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="$HOME/plaid/go.git/bin:$PATH"
 export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:/usr/local/Cellar
 export PATH=$PATH:/Users/eanstine/go/bin
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
@@ -27,7 +22,14 @@ export GOPROXY=https://proxy.golang.org
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 
@@ -41,8 +43,22 @@ if [ -f ~/.secrets.bash ]; then
     . ~/.secrets.bash
 fi
 
+alias brew86="arch -x86_64 /usr/local/bin/brew"
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+    git
+)
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -69,18 +85,6 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-    git
-)
-
-source $ZSH/oh-my-zsh.sh
-
-ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # User configuration
 
@@ -122,6 +126,8 @@ function saveDot() {
     echo "Reloading shell"
     soz
 }
+
+source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
