@@ -19,6 +19,11 @@ export GO111MODULE=on #go get -u golang.org/x/tools/cmd/goimports
 export GOPROXY=https://proxy.golang.org
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+
 # set machine specific secrets in ~/.plaid_env.bash
 if [ -f ~/.plaid_env.bash ]; then
     . ~/.plaid_env.bash
@@ -87,6 +92,7 @@ source $ZSH/oh-my-zsh.sh
 alias soz="source ~/.zshrc"
 alias dv="./devenv"
 alias t="task"
+alias brew86="arch -x86_64 /usr/local/bin/brew"
 
 # functions
 function preman() { man -t "$@" | open -f -a "Preview" ;}
@@ -101,7 +107,7 @@ function gh-pr {
 # OVERWRITE local dotfiles
 function saveDot() {
     echo "Updating $HOME/$1"
-    cat ~/code/dot/$1 > /$1
+    cat ~/code/dotfiles/$1 > ~/$1
     echo "Reloading shell"
     soz
 }
