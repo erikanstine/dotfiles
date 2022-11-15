@@ -122,6 +122,7 @@ source $ZSH/oh-my-zsh.sh
 # aliases
 alias soz="source ~/.zshrc"
 alias dv="./devenv"
+alias t="task"
 
 # functions
 function preman() { man -t "$@" | open -f -a "Preview" ;}
