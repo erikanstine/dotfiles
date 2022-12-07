@@ -15,6 +15,7 @@ export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:/usr/local/Cellar
 export PATH=$PATH:/Users/eanstine/go/bin
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
 
 export GOPATH=/Users/eanstine/go
 export GO111MODULE=on #go get -u golang.org/x/tools/cmd/goimports
@@ -29,6 +30,10 @@ export PYENV_ROOT="$HOME/.pyenv"
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
@@ -105,7 +110,6 @@ zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # aliases
 alias soz="source ~/.zshrc"
-alias dv="./devenv"
 alias t="task"
 alias brew86="arch -x86_64 /usr/local/bin/brew"
 
@@ -131,3 +135,5 @@ source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Set PATH, MANPATH, etc., for Homebrew.
+eval "$(/opt/homebrew/bin/brew shellenv)"
