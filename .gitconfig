@@ -1,0 +1,20 @@
+[user]
+  name = Erik Anstine
+  email = erikanstine@gmail.com
+  username = erikanstine
+[init]
+  defaultBranch = main
+[core]
+  editor = vim
+[web]
+  browser = google-chrome
+[color]
+  ui = auto
+[color "branch"]
+  current = yellow bold
+  local = green bold
+  remote = cyan bold
+[diff]
+  tool = vimdiff
+[alias]
+  s = status
