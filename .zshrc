@@ -10,7 +10,6 @@ export PATH=~/bin:$PATH
 export PATH=$PATH:/Users/eanstine/bin
 export PATH=$PATH:/Users/eanstine/Library/Python/3.7/bin
 export PATH="$PYENV_ROOT/bin:$PATH"
-export PATH="$HOME/plaid/go.git/bin:$PATH"
 export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:/usr/local/Cellar
 export PATH=$PATH:/Users/eanstine/go/bin
@@ -22,8 +21,6 @@ export GO111MODULE=on #go get -u golang.org/x/tools/cmd/goimports
 export GOPROXY=https://proxy.golang.org
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
-export PYENV_ROOT="$HOME/.pyenv"
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -34,19 +31,6 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-
-# set machine specific secrets in ~/.plaid_env.bash
-if [ -f ~/.plaid_env.bash ]; then
-    . ~/.plaid_env.bash
-fi
-
-# set machine specific secrets in ~/.secrets
-if [ -f ~/.secrets.bash ]; then
-    . ~/.secrets.bash
-fi
 
 alias brew86="arch -x86_64 /usr/local/bin/brew"
 
@@ -115,8 +99,6 @@ alias brew86="arch -x86_64 /usr/local/bin/brew"
 
 # functions
 function preman() { man -t "$@" | open -f -a "Preview" ;}
-
-function opj() { open https://jira.plaid.com/browse/FIDEVX-"$@" ;}
 
 # Create PR using FIDEVX template
 function gh-pr {
