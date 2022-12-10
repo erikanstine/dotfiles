@@ -5,7 +5,9 @@
 [init]
   defaultBranch = main
 [core]
+  excludesFile = /Users/erikanstine/.gitignore
   editor = vim
+  pager = less -FX
 [web]
   browser = google-chrome
 [color]
@@ -16,6 +18,8 @@
   remote = cyan bold
 [diff]
   tool = vimdiff
+[pull]
+  default = current
 [alias]
   ps = push
   ###
