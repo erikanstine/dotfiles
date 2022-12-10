@@ -17,4 +17,6 @@
 [diff]
   tool = vimdiff
 [alias]
-  s = status
+  ps = push
+  ###
+  s = status -s -b
