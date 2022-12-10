@@ -41,6 +41,7 @@ alias brew86="arch -x86_64 /usr/local/bin/brew"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
+    zsh-autosuggestions
 )
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
